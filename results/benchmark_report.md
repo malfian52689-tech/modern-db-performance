@@ -1,4 +1,6 @@
-# Laporan Evaluasi dan Implementasi
+# Implementasi Solusi Basis Data untuk Aplikasi Real-Time
+
+Laporan capstone pertemuan ke-14 mata kuliah Sistem Basis Data Modern.
 
 ## 1. Studi Kasus
 Sistem ini mensimulasikan monitor event untuk aplikasi real-time. Contohnya adalah notifikasi order baru, perubahan status layanan, atau aktivitas pengguna yang harus diterima oleh beberapa client dengan cepat.

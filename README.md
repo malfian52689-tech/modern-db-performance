@@ -1,4 +1,6 @@
-# Evaluasi Kinerja Sistem Basis Data Modern
+# Implementasi Solusi Basis Data untuk Aplikasi Real-Time
+
+Project capstone untuk mengimplementasikan solusi basis data pada aplikasi real-time sesuai Sub-CPMK-3.3 (C3: mengimplementasikan).
 
 ## Deskripsi Proyek
 Proyek ini bertujuan untuk mengevaluasi kinerja sistem basis data modern dalam konteks solusi industri. Fokus utama dari proyek ini adalah membandingkan performa sistem yang umum digunakan dalam aplikasi modern, terutama basis data relasional dan basis data NoSQL/in-memory.
