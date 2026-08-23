@@ -83,6 +83,9 @@ Endpoint yang tersedia:
 - `POST /api/events` untuk membuat event baru dengan `title` dan `detail`
 - `GET /api/stream` untuk menerima event secara real-time
 
+## Laporan Proyek
+Laporan studi kasus, pemilihan teknologi, alur implementasi, hasil pengujian, analisis bottleneck, dan rekomendasi pengembangan tersedia di [results/benchmark_report.md](results/benchmark_report.md).
+
 ## Hasil yang Diharapkan
 Proyek ini diharapkan menghasilkan:
 
@@ -92,7 +95,7 @@ Proyek ini diharapkan menghasilkan:
 - Rekomendasi optimasi berdasarkan hasil evaluasi
 
 ## Link Repository GitHub
-Link repository akan diberikan setelah akun GitHub Anda tersedia dan repo dipush ke GitHub.
+https://github.com/malfian52689-tech/modern-db-performance
 
 ---
 
