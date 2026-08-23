@@ -23,6 +23,18 @@ SQLite dipilih sebagai penyimpanan persisten karena ringan, mendukung transaksi,
 
 Server-Sent Events (SSE) dipilih untuk komunikasi satu arah dari server ke browser. Pendekatan ini sesuai untuk notifikasi dan monitor event karena implementasinya sederhana serta browser menyediakan API `EventSource`.
 
+## 4.1 Pemetaan Materi Pertemuan ke-14
+
+| Topik materi | Implementasi dalam project |
+|---|---|
+| Analisis kebutuhan real-time | Kebutuhan fungsional dan nonfungsional dirumuskan untuk monitor event. |
+| NoSQL dan In-Memory Database | Redis disediakan pada `benchmark.py` sebagai pembanding in-memory. |
+| Integrasi dan sinkronisasi data | SSE mengirim event baru ke seluruh client aktif. |
+| Caching, indexing, dan pemodelan data | Index SQLite, WAL, pembatasan data, dan model tabel event diterapkan. |
+| Polyglot persistence | SQLite digunakan untuk data persisten dan Redis disiapkan sebagai opsi in-memory/cache. |
+
+Implementasi utama menggunakan SQLite dan SSE agar dapat dijalankan tanpa server tambahan. Redis merupakan komponen opsional yang dapat diaktifkan untuk eksperimen in-memory dan pengembangan skala lebih besar.
+
 ## 4. Alur Implementasi
 1. Browser mengirim `POST /api/events`.
 2. Server memvalidasi `title` dan `detail`.

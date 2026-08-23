@@ -88,6 +88,9 @@ Endpoint yang tersedia:
 ## Laporan Proyek
 Laporan studi kasus, pemilihan teknologi, alur implementasi, hasil pengujian, analisis bottleneck, dan rekomendasi pengembangan tersedia di [results/benchmark_report.md](results/benchmark_report.md).
 
+## Kesesuaian dengan Materi Pertemuan ke-14
+Project ini menerapkan analisis kebutuhan aplikasi real-time, pemilihan SQLite sebagai penyimpanan persisten, SSE untuk sinkronisasi event, indexing dan WAL untuk optimasi, serta benchmark Redis sebagai opsi teknologi in-memory. Kombinasi penyimpanan persisten dan in-memory tersebut menjadi dasar pengembangan polyglot persistence.
+
 ## Hasil yang Diharapkan
 Proyek ini diharapkan menghasilkan:
 
