@@ -16,13 +16,13 @@ Mahasiswa akan melakukan analisis terhadap beberapa aspek performa seperti:
 Selain itu, proyek ini juga mengkaji masalah yang sering muncul pada sistem basis data, seperti bottleneck, overload, dan kebutuhan optimasi melalui indexing, caching, serta partisi data.
 
 ## Tujuan Pembelajaran
-Proyek ini sesuai dengan Sub-CPMK-3.4, yaitu mahasiswa mampu:
+Proyek ini sesuai dengan Sub-CPMK-3.3 pada level C3 Bloom's Taxonomy, yaitu mahasiswa mampu mengimplementasikan solusi basis data untuk aplikasi real-time:
 
-1. Mengevaluasi kinerja sistem basis data secara kritis.
-2. Menggunakan metode dan metrik evaluasi yang tepat.
-3. Menentukan bottleneck yang memengaruhi performa.
-4. Mengusulkan strategi optimasi yang relevan.
-5. Menerapkan konsep evaluasi performa pada skenario industri nyata.
+1. Menganalisis kebutuhan aplikasi real-time.
+2. Memilih teknologi basis data yang sesuai.
+3. Mengimplementasikan penyimpanan event secara persisten.
+4. Mengimplementasikan komunikasi event real-time kepada client.
+5. Menghasilkan solusi yang aplikatif dan relevan dengan kebutuhan industri.
 
 ## Ruang Lingkup
 Proyek ini mencakup:
