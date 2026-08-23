@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Live Event Monitor</title>
+  <style>
+    :root { font-family: Segoe UI, sans-serif; color: #17202a; background: #eef4f2; }
+    body { max-width: 880px; margin: 0 auto; padding: 32px 20px; }
+    header { display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+    h1 { margin: 0 0 8px; color: #0b6e69; }
+    .status { color: #b54708; font-weight: 600; }
+    .status.online { color: #087f5b; }
+    form, .event { background: white; border: 1px solid #d7e3df; border-radius: 8px; padding: 18px; margin-top: 20px; }
+    form { display: grid; gap: 12px; }
+    input, textarea, button { font: inherit; padding: 10px; border: 1px solid #b9cbc5; border-radius: 5px; }
+    textarea { min-height: 80px; resize: vertical; }
+    button { background: #0b6e69; color: white; border: 0; cursor: pointer; font-weight: 600; }
+    button:hover { background: #07534f; }
+    .event { margin-top: 12px; }
+    .event h3 { margin: 0 0 6px; }
+    .event p { margin: 0 0 8px; }
+    time { color: #65736f; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div><h1>Live Event Monitor</h1><p>Simulasi aplikasi real-time dengan SQLite dan SSE.</p></div>
+    <span id="status" class="status">Menghubungkan...</span>
+  </header>
+  <form id="event-form">
+    <input id="title" placeholder="Judul event" maxlength="100" required>
+    <textarea id="detail" placeholder="Detail event" maxlength="500" required></textarea>
+    <button type="submit">Kirim Event</button>
+  </form>
+  <section id="events" aria-live="polite"></section>
+  <script>
+    const eventList = document.querySelector('#events');
+    const status = document.querySelector('#status');
+    const render = (event, prepend = true) => {
+      const article = document.createElement('article');
+      article.className = 'event';
+      article.innerHTML = `<h3></h3><p></p><time></time>`;
+      article.querySelector('h3').textContent = event.title;
+      article.querySelector('p').textContent = event.detail;
+      article.querySelector('time').textContent = new Date(event.created_at).toLocaleString('id-ID');
+      if (prepend) eventList.prepend(article); else eventList.append(article);
+    };
+    fetch('/api/events').then(response => response.json()).then(data => data.events.reverse().forEach(event => render(event, false)));
+    const stream = new EventSource('/api/stream');
+    stream.onopen = () => { status.textContent = '● Terhubung'; status.className = 'status online'; };
+    stream.onerror = () => { status.textContent = 'Terputus, mencoba lagi...'; status.className = 'status'; };
+    stream.onmessage = message => render(JSON.parse(message.data));
+    document.querySelector('#event-form').addEventListener('submit', async (submitEvent) => {
+      submitEvent.preventDefault();
+      const form = submitEvent.currentTarget;
+      const response = await fetch('/api/events', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ title: title.value, detail: detail.value }) });
+      if (response.ok) form.reset(); else alert('Event tidak valid.');
+    });
+  </script>
+</body>
+</html>

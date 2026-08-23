@@ -27,6 +27,7 @@ Proyek ini mencakup:
 
 - Pengukuran performa basis data relasional (SQLite)
 - Evaluasi performa basis data in-memory (Redis)
+- Implementasi aplikasi real-time untuk menerima dan menampilkan event secara langsung
 - Analisis benchmarking berdasarkan jumlah data dan operasi CRUD
 - Identifikasi bottleneck dan rekomendasi optimasi
 - Dokumentasi hasil pengukuran dalam bentuk laporan dan ringkasan analisis
@@ -34,6 +35,7 @@ Proyek ini mencakup:
 ## Teknologi yang Digunakan
 - Python
 - SQLite
+- Server-Sent Events (SSE)
 - Redis (opsional)
 - GitHub untuk repository proyek
 
@@ -43,6 +45,8 @@ Proyek ini mencakup:
 modern-db-performance/
 ├── README.md
 ├── benchmark.py
+├── realtime_app.py
+├── index.html
 ├── requirements.txt
 └── results/
     └── benchmark_report.md
@@ -63,6 +67,21 @@ python benchmark.py --records 5000
 ```
 
 4. Jika Redis tersedia di lokal, skrip akan membandingkan performa SQLite dan Redis. Jika tidak tersedia, program tetap berjalan dengan SQLite sebagai data utama.
+
+## Menjalankan Aplikasi Real-Time
+Jalankan server:
+
+```bash
+python realtime_app.py
+```
+
+Buka http://127.0.0.1:8000 pada browser. Masukkan event melalui form. Event akan disimpan ke SQLite dan dikirim langsung ke browser melalui Server-Sent Events (SSE). Buka dua tab browser untuk melihat bahwa event baru muncul pada semua koneksi aktif.
+
+Endpoint yang tersedia:
+
+- `GET /api/events` untuk membaca 50 event terbaru
+- `POST /api/events` untuk membuat event baru dengan `title` dan `detail`
+- `GET /api/stream` untuk menerima event secara real-time
 
 ## Hasil yang Diharapkan
 Proyek ini diharapkan menghasilkan:
